@@ -10,6 +10,11 @@ function install {
     python -m pip install --editable "$THIS_DIR/[dev]"
 }
 
+# Run the fastapi server
+function run {
+    uvicorn src.app.main:app --reload
+}
+
 # run linting, formatting, and other static code quality tools
 function lint {
     pre-commit run --all-files

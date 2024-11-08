@@ -12,10 +12,12 @@ authors = [{ name = "Saul Ramirez", email = "some-email@gmail.com" }]
 description = "My package description"
 readme = "README.md"
 requires-python = ">=3.7"
-keywords = ["one", "two"]
+keywords = ["Sentiment Analysis", "NLP", "Machine Learning"]
 license = { text = "MIT" }
 classifiers = ["Programming Language :: Python :: 3"]
-dependencies = ["numpy", 'importlib-metadata; python_version<"3.8"']
+dependencies = [
+    "numpy", "pandas", "scikit-learn", "torch", "transformers", "uvicorn", "fastapi",
+    ]
 dynamic = ["version"]
 
 [project.optional-dependencies]
@@ -33,12 +35,12 @@ markers = ["slow: marks tests as slow (deselect with '-m \"not slow\"')"]
 
 [tool.black]
 line-length = 119
-exclude = ["venv"]
+exclude = "venv"
 
 [tool.flake8]
 docstring-convention = "all"
 ignore = ["D107", "D212", "E501", "W503", "W605", "D203", "D100"]
-exclude = ["venv"]
+exclude = "venv"
 max-line-length = 119
 
 # radon

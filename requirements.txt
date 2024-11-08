@@ -1,7 +1,7 @@
+fastapi
 numpy
 pandas
 scikit-learn
 torch
 transformers
 uvicorn
-fastapi

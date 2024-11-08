@@ -1,7 +1,5 @@
 import logging
-from typing import List
 
-import numpy as np
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -17,17 +15,17 @@ LOGGER = logging.getLogger("SentimentAnalysisAPI.inference")
 classifier = pipeline("sentiment-analysis", model="stevhliu/my_awesome_model")
 
 # Define the label mapping
-LABEL_MAPPING = {
-    "LABEL_1": "Positive",
-    "LABEL_0": "Negative"
-}
+LABEL_MAPPING = {"LABEL_1": "Positive", "LABEL_0": "Negative"}
+
 
 class TextInput(BaseModel):
     text: str
 
+
 class TextOutput(BaseModel):
     label: str
     score: float
+
 
 @router.post("/inference/get_label", response_model=TextOutput)
 async def predict_fakeness(text: TextInput):
